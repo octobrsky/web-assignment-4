@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f9fa;
+  margin: 20px;
+}
+
+.container {
+  max-width: 500px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  margin-top: 0;
+  color: #222;
+}
+
+#loadTasksBtn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#loadTasksBtn:hover {
+  background-color: #0056b3;
+}
+
+#statusMessage {
+  min-height: 20px;
+  margin: 10px 0;
+  color: #555;
+}
+
+#taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.task.completed span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.actions button {
+  margin-left: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
