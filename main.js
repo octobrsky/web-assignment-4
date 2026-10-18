@@ -45,3 +45,27 @@ function render() {
     taskList.appendChild(taskDiv);
   });
 }
+
+// Event listener for loading tasks asynchronously
+loadTasksBtn.addEventListener("click", async () => {
+  statusMessage.textContent = "Loading tasks...";
+
+  try {
+    const rawData = await fetchTasks();
+
+    // Assignment requirement: serialize to JSON and parse back
+    const jsonString = JSON.stringify(rawData);
+    const parsedData = JSON.parse(jsonString);
+
+    const taskInstances = parsedData.map(
+      (item) => new Task(item.id, item.title, item.completed)
+    );
+
+    manager.setTasks(taskInstances);
+    render();
+    statusMessage.textContent = "";
+  } catch (error) {
+    statusMessage.textContent = "Failed to load tasks. Please try again.";
+    console.error("Error fetching tasks:", error);
+  }
+});
